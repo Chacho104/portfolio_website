@@ -1,101 +1,132 @@
-import Image from "next/image";
+"use client";
+
+import Link from "next/link";
+
+import { IconType } from "react-icons";
+import { BiChevronDown } from "react-icons/bi";
+import { BsGithub, BsLinkedin, BsTwitter } from "react-icons/bs";
+import { FaArrowRight } from "react-icons/fa6";
+
+import Projects from "./components/content/projects";
+import ContactMe from "./components/content/contact-me";
+import CtaButton from "./components/ui-elements/cta-button";
+
+// Define type for social handles
+
+type Socials = { id: string; label: string; icon: IconType; url: string };
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const socials: Socials[] = [
+    {
+      id: "linkedin",
+      label: "LinkedIn",
+      icon: BsLinkedin,
+      url: "https://www.linkedin.com/in/churchilowino/",
+    },
+    {
+      id: "github",
+      label: "GitHub",
+      icon: BsGithub,
+      url: "https://github.com/Chacho104",
+    },
+    { id: "twitter", label: "Twitter", icon: BsTwitter, url: "/" },
+  ];
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  return (
+    <main className="w-full h-auto bg-background flex">
+      <div className="w-full h-full bg-container-bg mx-0 sm:mx-10 my-0 sm:my-2">
+        <div className="px-4 sm:px-20">
+          {/* Sections with IDs */}
+          <section className="w-full h-screen flex items-center justify-between">
+            <div className="space-y-10 w-3/4">
+              <div
+                className="w-20 border-t-2 border-headings"
+                aria-label="A div to render a small to border"
+              />
+              <div className="space-y-2">
+                <h1 className="text-6xl text-headings leading-snug font-mono">
+                  I&apos;m Churchil,
+                  <br /> a Web Developer
+                </h1>
+                <p className="text-par tracking-wide">
+                  Proactive and detail-oriented, passionate about crafting
+                  elegant interfaces
+                  <br /> that delight users and exceed expectations.
+                </p>
+              </div>
+              {/* Button to scroll to the about me section */}
+              <CtaButton
+                label="BROWSE PORTFOLIO"
+                icon={BiChevronDown}
+                onClick={() => {}}
+              />
+            </div>
+            <div className="w-1/4">
+              <div className="space-y-2 sm:space-y-4">
+                <h2 className="text-headings font-mono">ABOUT ME</h2>
+                <p className="text-par text-sm">
+                  Looking to start immediately? Need an expert in HTML5, CSS3,
+                  JS/TS, React, Next, and Node/Express? Let&apos;s talk!
+                  Different tech stack? I learn fast—reach out anyway!
+                </p>
+                {/* Button to scroll to the contact me form section */}
+                <button
+                  type="button"
+                  className="flex items-center gap-x-2 border-b-[1px] pb-1 hover:animate-pulse transition-transform duration-300 text-links"
+                >
+                  <span className="text-xs">CONTACT ME</span>
+                  <FaArrowRight size={16} />
+                </button>
+              </div>
+              <div
+                className="w-full border-t-[1px] border-gray-600 my-10"
+                aria-label="A div to render a small to border"
+              />
+              <div className="space-y-2 sm:space-y-4">
+                <h2 className="text-headings font-mono">MY WORK</h2>
+                <p className="text-par text-sm">
+                  Tripled e-commerce sales in 3 months through mobile-first
+                  design & development, page & query speed optimizations,
+                  improved navigation, and SEO best practices.
+                </p>
+                {/* Button to scroll to the about me section */}
+                <button
+                  type="button"
+                  className="flex items-center gap-x-2 border-b-[1px] pb-1 hover:animate-pulse transition-transform duration-300 text-headings"
+                >
+                  <span className="text-xs">BROWSE PORTFOLIO</span>
+                  <FaArrowRight size={16} />
+                </button>
+              </div>
+              <div
+                className="w-full border-t-[1px] border-gray-600 my-10"
+                aria-label="A div to render a small to border"
+              />
+              <div className="space-y-2 sm:space-y-4">
+                <h2 className="text-headings font-mono">FOLLOW ME</h2>
+                <div className="flex items-center gap-x-6">
+                  {socials.map((social) => (
+                    <Link
+                      key={social.id}
+                      href={social.url}
+                      target="_blank"
+                      className="text-btn-bg hover:animate-pulse transition-transform duration-300"
+                    >
+                      <social.icon size={24} />
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </section>
+          <section className="w-full h-auto">
+            <Projects />
+          </section>
+          <section className="w-full h-auto">
+            <ContactMe />
+          </section>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </div>
+    </main>
   );
 }
