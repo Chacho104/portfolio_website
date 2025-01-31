@@ -19,7 +19,7 @@ const CtaButton = ({
       type="button"
       onClick={onClick}
       className={cn(
-        "bg-btn-bg rounded-full px-4 py-2 text-white flex items-center gap-x-2 hover:scale-95 hover:opacity-70 transition-all duration-300",
+        "bg-btn-bg rounded-full px-4 py-3 text-white text-sm flex items-center gap-x-2 hover:scale-95 hover:opacity-70 transition-all duration-300 font-mono",
         className
       )}
     >
